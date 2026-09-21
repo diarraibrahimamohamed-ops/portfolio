@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ibrahima Mohamed Diarra — Software Developper & Computational Biology</title>
+<title>Ibrahima Mohamed Diarra — Software Developer & Computational Biology</title>
 <meta name="description" content="Portfolio d'Ibrahima Mohamed Diarra — ingénierie logicielle, bioinformatique, IA appliquée et systèmes web." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,7 +61,7 @@
         <span class="typing-text" id="typingText"></span><span class="cursor-blink">|</span>
       </p>
       <p class="hero-description" data-aos="fade-up" data-aos-delay="300">
-        Je construis des <strong>logiciels scientifiques</strong>, des plateformes <strong>web</strong> et des systèmes d'<strong>IA appliquée</strong> à la rencontre de l'ingénierie logicielle, de la bioinformatique et des outils computationnels.
+        Je construis des <strong>logiciels scientifiques</strong>, des plateformes <strong>web</strong>, des systèmes de <strong>cybersécurité</strong> et des outils d'<strong>IA appliquée</strong> à la rencontre de l'ingénierie logicielle, de la bioinformatique et des systèmes computationnels.
       </p>
       <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
         <a href="#projects" class="btn btn-primary">
@@ -74,8 +74,8 @@
         </a>
       </div>
       <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
-        <div class="stat"><span class="stat-num" data-count="5">0</span><span class="stat-label">Projets publiés</span></div>
-        <div class="stat"><span class="stat-num" data-count="5">0</span><span class="stat-label">Dépôts GitHub</span></div>
+        <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">Projets publiés</span></div>
+        <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">Dépôts GitHub</span></div>
         <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">Axes techniques</span></div>
       </div>
     </div>
@@ -122,7 +122,7 @@
         </p>
         <p>
           Mes réalisations couvrent plusieurs niveaux : <strong>bioinformatique et calcul scientifique</strong>,
-          applications <strong>e-commerce full-stack</strong>, systèmes d'information métiers et <strong>agents IA</strong> à exécution contrôlée.
+          <strong>cybersécurité et renseignement sur les menaces</strong>, applications <strong>e-commerce full-stack</strong>, systèmes d'information métiers et <strong>agents IA</strong> à exécution contrôlée.
         </p>
         <p>
           Je travaille avec des architectures par services, des API REST, des bases relationnelles,
@@ -236,7 +236,7 @@
           <h3>Sécurité & qualité</h3>
         </div>
         <div class="skill-tags">
-          <span>JWT</span><span>RBAC</span><span>CSRF</span><span>XSS</span><span>SQLi Prevention</span><span>Audit</span><span>Tests</span>
+          <span>JWT</span><span>RBAC</span><span>OWASP</span><span>Nmap</span><span>Nuclei</span><span>ZAP</span><span>Semgrep</span><span>Trivy</span><span>Gitleaks</span><span>Audit</span><span>Tests</span>
         </div>
       </div>
     </div>
@@ -249,7 +249,7 @@
     <div class="section-header" data-aos="fade-up">
       <span class="section-tag">03 — Réalisations</span>
       <h2 class="section-title">Projets <span class="gradient-text">phares</span></h2>
-      <p class="section-subtitle">Cinq réalisations publiques couvrant bioinformatique, e-commerce, systèmes d'information et IA appliquée.</p>
+      <p class="section-subtitle">Six réalisations publiques couvrant bioinformatique, cybersécurité, e-commerce, systèmes d'information et IA appliquée.</p>
     </div>
 
     <!-- PROJECT 1 : N3XORA -->
@@ -464,27 +464,73 @@
       </div>
     </article>
 
-    <!-- PROJECT 5 : EMPEREUR -->
-    <article id="empereur" class="project featured" data-aos="fade-up">
+    <!-- PROJECT 5 : SNAKE EYES / AFRICAWATCH -->
+    <article class="project featured reverse" data-aos="fade-up">
       <div class="project-meta">
         <span class="project-number">05</span>
+        <span class="project-type">Cybersécurité · Threat Intelligence · OSINT</span>
+      </div>
+      <div class="project-content">
+        <div class="project-info">
+          <h3 class="project-title">Snake Eyes <span class="gradient-text">/ AfricaWatch</span></h3>
+          <p class="project-tagline">Plateforme de cybersécurité, renseignement sur les menaces et OSINT orientée contexte africain</p>
+          <p class="project-description">
+            Plateforme multi-services bâtie autour de <strong>Django 5</strong>, <strong>Next.js 14</strong>, PostgreSQL, Redis et Celery. Le projet rassemble Threat Intelligence, OSINT multilingue, SOC temps réel, gestion des vulnérabilités, cartographie de menace et un <strong>Offensive Lab à périmètre contrôlé</strong>, complété par un Security Lab pour l'audit défensif.
+          </p>
+          <div class="project-highlights">
+            <div class="highlight"><i class="fas fa-check"></i> IOCs, flux MISP/OTX/STIX/TAXII, campagnes et acteurs</div>
+            <div class="highlight"><i class="fas fa-check"></i> OSINT : sources, événements, collecte asynchrone, NLP et contexte africain</div>
+            <div class="highlight"><i class="fas fa-check"></i> SOC avec alertes WebSocket, incidents et règles Sigma/YARA</div>
+            <div class="highlight"><i class="fas fa-check"></i> Offensive Lab et Security Lab safe-by-default : reconnaissance, posture et audits non intrusifs</div>
+          </div>
+          <div class="project-stack">
+            <span>Python</span><span>Django 5</span><span>Next.js 14</span><span>PostgreSQL</span><span>Redis</span><span>Celery</span><span>Nmap</span><span>Nuclei</span><span>OWASP</span><span>ZAP</span><span>Semgrep</span><span>Trivy</span><span>Gitleaks</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/diarraibrahimamohamed-ops/snake_eyes" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code source</a>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="project-mockup">
+            <div class="mockup-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="mockup-url">africawatch / security center</span></div>
+            <div class="mockup-body neuron-vis" style="padding:28px;">
+              <div style="font-family:var(--font-mono);font-size:12px;line-height:1.9;opacity:.94;">
+                <div><strong>THREAT INTELLIGENCE</strong>  →  IOCs · MISP · STIX/TAXII</div>
+                <div><strong>OSINT ENGINE</strong>       →  RSS · GitHub · NLP · sources</div>
+                <div><strong>SOC CENTER</strong>         →  alerts · incidents · Sigma/YARA</div>
+                <div><strong>VULNERABILITY MGMT</strong> →  Nmap · Nuclei · CVSS</div>
+                <div><strong>OFFENSIVE LAB</strong>      →  scoped recon · posture · exposure</div>
+                <div><strong>SECURITY LAB</strong>       →  OWASP · ZAP · SAST/SCA · secrets</div>
+                <div style="margin-top:12px;opacity:.7;">SAFE-BY-DEFAULT · AUTHORIZATION · KILL-SWITCH · AUDIT</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-shot-caption">Aperçu fonctionnel représenté à partir des modules documentés du dépôt · aucune capture d'écran inventée.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 6 : EMPEREUR -->
+    <article id="empereur" class="project featured" data-aos="fade-up">
+      <div class="project-meta">
+        <span class="project-number">06</span>
         <span class="project-type">Agent Linux · IA appliquée</span>
       </div>
       <div class="project-content">
         <div class="project-info">
-          <h3 class="project-title">EMPEREUR <span class="gradient-text">v0.4.0</span></h3>
-          <p class="project-tagline">Agent Linux personnel à routage multi-fournisseurs et exécution contrôlée</p>
+          <h3 class="project-title">EMPEREUR <span class="gradient-text">v0.19.0</span></h3>
+          <p class="project-tagline">Agent Linux local à missions persistantes, intelligence projet et interaction vocale contrôlée</p>
           <p class="project-description">
-            Agent Python conçu autour d'un <strong>routeur de modèles par rôle</strong>. EMPEREUR sélectionne un fournisseur selon la tâche, gère les fallbacks et conserve les garde-fous d'exécution : permissions, inspection initiale, budget de mutations, audit et vérification post-action.
+            Agent Python évolué vers une architecture locale de type JARVIS : <strong>Strategist → Critic → Arbiter → Operator → Verifier</strong>, avec mémoire persistante, modèle structurel du projet, analyse d'impact, préflight de changement, control plane REST/WebSocket et cockpit web. La v0.19 ajoute un duplex vocal avec <strong>VAD local adaptatif</strong> et barge-in, sans donner de privilèges supplémentaires au modèle.
           </p>
           <div class="project-highlights">
-            <div class="highlight"><i class="fas fa-check"></i> Rôles general, strategist, coder, critic et verifier</div>
-            <div class="highlight"><i class="fas fa-check"></i> Routage entre OpenRouter, Gemini, Groq, xAI, Mistral et Together</div>
-            <div class="highlight"><i class="fas fa-check"></i> Fallbacks, cooldown et état de santé des fournisseurs</div>
-            <div class="highlight"><i class="fas fa-check"></i> Permissions SAFE / CONFIRM / CRITICAL + audit et vérification SAFE</div>
+            <div class="highlight"><i class="fas fa-check"></i> Missions persistantes, sous-objectifs, reprise et arbitrage</div>
+            <div class="highlight"><i class="fas fa-check"></i> Project Context, mémoire sémantique, graphe, impact et change preflight</div>
+            <div class="highlight"><i class="fas fa-check"></i> Control plane REST/WebSocket + cockpit local + télémétrie</div>
+            <div class="highlight"><i class="fas fa-check"></i> Voix locale : STT/TTS optionnels, wake-word, duplex, interruption et VAD énergétique</div>
           </div>
           <div class="project-stack">
-            <span>Python</span><span>Typer</span><span>Pydantic</span><span>HTTPX</span><span>Rich</span><span>LLM APIs</span><span>Pytest</span><span>Linux</span>
+            <span>Python</span><span>Typer</span><span>FastAPI</span><span>SQLite</span><span>Pydantic</span><span>HTTPX</span><span>WebSocket</span><span>Pytest</span><span>Linux</span><span>faster-whisper</span><span>openWakeWord</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/diarraibrahimamohamed-ops/empereur_IA" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code source</a>
@@ -492,18 +538,23 @@
         </div>
         <div class="project-visual">
           <div class="project-mockup">
-            <div class="mockup-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="mockup-url">empereur / providers</span></div>
+            <div class="mockup-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="mockup-url">empereur / jarvis local</span></div>
             <div class="mockup-body neuron-vis" style="padding:28px;">
-              <div style="font-family:var(--mono);font-size:13px;line-height:1.8;opacity:.92;">
-                <div>USER → <strong>CLASSIFIER</strong></div>
-                <div>     ↓</div>
-                <div><strong>ROLE ROUTER</strong></div>
-                <div>     ├─ STRATEGIST</div><div>     ├─ CODER</div><div>     ├─ CRITIC</div><div>     └─ VERIFIER</div>
-                <div>     ↓</div><div><strong>PROVIDER + FALLBACK</strong></div><div>     ↓</div><div><strong>TOOLS → PERMISSIONS → VERIFY</strong></div>
+              <div style="font-family:var(--font-mono);font-size:13px;line-height:1.8;opacity:.92;">
+                <div>USER / VOICE → <strong>EMPEREUR CORE</strong></div>
+                <div>             ↓</div>
+                <div><strong>MEMORY + PROJECT MODEL</strong></div>
+                <div>             ↓</div>
+                <div><strong>STRATEGIST → CRITIC → ARBITER</strong></div>
+                <div>             ↓</div>
+                <div><strong>TOOLS → PERMISSIONS → VERIFY</strong></div>
+                <div>             ↓</div>
+                <div><strong>OBSERVE → CORRECT → RETEST → RESUME</strong></div>
+                <div style="margin-top:10px;opacity:.7;">V0.19 · LOCAL VAD · BARGE-IN · AUDIT · BOUNDED MUTATIONS</div>
               </div>
             </div>
           </div>
-          <div class="project-shot-caption">Aucune capture EMPEREUR n'a été ajoutée au dépôt Rouleau dans le commit inspecté · voir le code source.</div>
+          <div class="project-shot-caption">Aperçu fonctionnel représenté à partir de l'architecture actuelle du dépôt · aucune capture inventée.</div>
         </div>
       </div>
     </article>
