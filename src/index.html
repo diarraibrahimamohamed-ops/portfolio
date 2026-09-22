@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; frame-src 'none'; frame-ancestors 'none'; child-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; media-src 'none'; upgrade-insecure-requests; block-all-mixed-content" />
+<meta name="referrer" content="no-referrer" />
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="X-Frame-Options" content="DENY" />
+<meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+<meta name="permissions-policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()" />
+<title>Ibrahima Mohamed Diarra — Software Developer & Computational Biology</title>
+<meta name="description" content="Portfolio d'Ibrahima Mohamed Diarra — ingénierie logicielle, bioinformatique, IA appliquée et systèmes web." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ==== CURSEUR PERSONNALISÉ ==== -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ==== CANVAS NEURONES ==== -->
+<canvas id="neuralCanvas"></canvas>
+
+<!-- ==== PROGRESS BAR ==== -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ==== NAVIGATION ==== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#hero" class="logo">
+      <span class="logo-bracket">&lt;</span>
+      <span class="logo-text">IMD</span>
+      <span class="logo-bracket">/&gt;</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about" class="nav-link"><span>01.</span> À propos</a></li>
+      <li><a href="#expertise" class="nav-link"><span>02.</span> Expertise</a></li>
+      <li><a href="#projects" class="nav-link"><span>03.</span> Projets</a></li>
+      <li><a href="#empereur" class="nav-link"><span>04.</span> EMPEREUR</a></li>
+      <li><a href="#contact" class="nav-link"><span>05.</span> Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Discutons <i class="fas fa-arrow-right"></i></a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ==== HERO ==== -->
+<section id="hero" class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-container">
+    <div class="hero-left">
+      <p class="hero-tagline" data-aos="fade-up">
+        <span class="dot-pulse"></span> Disponible pour de nouvelles collaborations
+      </p>
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+        <span class="line">Ibrahima Mohamed</span>
+        <span class="line gradient-text">Diarra</span>
+      </h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+        <span class="typing-text" id="typingText"></span><span class="cursor-blink">|</span>
+      </p>
+      <p class="hero-description" data-aos="fade-up" data-aos-delay="300">
+        Je construis des <strong>logiciels scientifiques</strong>, des plateformes <strong>web</strong>, des systèmes de <strong>cybersécurité</strong> et des outils d'<strong>IA appliquée</strong> à la rencontre de l'ingénierie logicielle, de la bioinformatique et des systèmes computationnels.
+      </p>
+      <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
+        <a href="#projects" class="btn btn-primary">
+          <span>Explorer mes projets</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#empereur" class="btn btn-ghost">
+          <i class="fas fa-terminal"></i>
+          <span>Voir EMPEREUR</span>
+        </a>
+      </div>
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+        <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">Projets publiés</span></div>
+        <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">Dépôts GitHub</span></div>
+        <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">Axes techniques</span></div>
+      </div>
+    </div>
+
+    <div class="hero-right" data-aos="fade-left" data-aos-delay="300">
+      <div class="photo-wrapper">
+        <div class="photo-orbit orbit-1"></div>
+        <div class="photo-orbit orbit-2"></div>
+        <div class="photo-orbit orbit-3"></div>
+        <div class="photo-container">
+          <!-- ⬇️ REMPLACEZ src="" PAR LE CHEMIN DE VOTRE PHOTO (ex: assets/photo.jpg) ⬇️ -->
+          <img src="image/20251024_120800.jpg" alt="Ibrahima Mohamed Diarra" id="profilePhoto" />
+          <div class="photo-placeholder" id="photoPlaceholder">
+            
+          </div>
+          <div class="photo-glow"></div>
+        </div>
+        <div class="floating-badge badge-1"><i class="fab fa-python"></i></div>
+        <div class="floating-badge badge-2"><i class="fas fa-dna"></i></div>
+        <div class="floating-badge badge-3"><i class="fas fa-brain"></i></div>
+        <div class="floating-badge badge-4"><i class="fas fa-atom"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Défiler</span>
+    <div class="mouse"><div class="wheel"></div></div>
+  </div>
+</section>
+
+<!-- ==== ABOUT ==== -->
+<section id="about" class="section about">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">01 — À propos</span>
+      <h2 class="section-title">Au croisement de la <span class="gradient-text">science</span> et du <span class="gradient-text">code</span></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text" data-aos="fade-right">
+        <p class="lead">
+          Développeur <strong>logiciel</strong> et étudiant en SVT option <strong>microbiologie appliquée</strong>, je développe des solutions qui relient ingénierie logicielle, science des données et problématiques du vivant.
+        </p>
+        <p>
+          Mes réalisations couvrent plusieurs niveaux : <strong>bioinformatique et calcul scientifique</strong>,
+          <strong>cybersécurité et renseignement sur les menaces</strong>, applications <strong>e-commerce full-stack</strong>, systèmes d'information métiers et <strong>agents IA</strong> à exécution contrôlée.
+        </p>
+        <p>
+          Je travaille avec des architectures par services, des API REST, des bases relationnelles,
+          Docker et des interfaces web modernes, tout en accordant une place importante à la <strong>sécurité</strong>, la <strong>traçabilité</strong> et la vérification des résultats.
+        </p>
+        <div class="about-info">
+          <div class="info-item">
+            <span class="info-label">Localisation</span>
+            <span class="info-value"><i class="fas fa-location-dot"></i> Mali / International</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Disponibilité</span>
+            <span class="info-value"><i class="fas fa-circle pulse-green"></i> Ouvert aux opportunités</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Focus</span>
+            <span class="info-value"><i class="fas fa-bullseye"></i> Logiciel · Bioinformatique · IA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-cards" data-aos="fade-left">
+        <div class="about-card">
+          <div class="card-icon"><i class="fas fa-dna"></i></div>
+          <h3>Bioinformatique</h3>
+          <p>Analyse de séquences ADN/ARN, intégration NCBI, propriétés moléculaires, docking et visualisation structurale avec N3XORA.</p>
+        </div>
+        <div class="about-card">
+          <div class="card-icon"><i class="fas fa-server"></i></div>
+          <h3>Systèmes</h3>
+          <p>API REST, PostgreSQL/MySQL, traitements asynchrones, Docker, monorepos et intégration de services spécialisés.</p>
+        </div>
+        <div class="about-card">
+          <div class="card-icon"><i class="fas fa-code"></i></div>
+          <h3>Ingénierie</h3>
+          <p>Applications web, sécurité applicative, RBAC, validation des entrées, transactions, tests et traçabilité.</p>
+        </div>
+        <div class="about-card">
+          <div class="card-icon"><i class="fas fa-microchip"></i></div>
+          <h3>IA appliquée</h3>
+          <p>Service de scoring du risque vaccinal et agent Linux multi-fournisseurs avec permissions, audit et vérification post-action.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== EXPERTISE ==== -->
+<section id="expertise" class="section expertise">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">02 — Expertise</span>
+      <h2 class="section-title">Stack <span class="gradient-text">technique</span></h2>
+      <p class="section-subtitle">Une stack construite par la pratique, de la science computationnelle aux applications web, aux systèmes distribués et aux agents IA.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="0">
+        <div class="skill-head">
+          <i class="fas fa-dna"></i>
+          <h3>Bioinformatique & calcul</h3>
+        </div>
+        <div class="skill-tags">
+          <span>BioPython</span><span>RDKit</span><span>AutoDock Vina</span><span>fpocket</span><span>NCBI</span><span>FASTA</span><span>Three.js</span>
+        </div>
+      </div>
+
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-head">
+          <i class="fas fa-server"></i>
+          <h3>Back-end & API</h3>
+        </div>
+        <div class="skill-tags">
+          <span>Python</span><span>FastAPI</span><span>Celery</span><span>Redis</span><span>PHP</span><span>Laravel</span><span>REST API</span>
+        </div>
+      </div>
+
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+        <div class="skill-head">
+          <i class="fas fa-database"></i>
+          <h3>Données & persistance</h3>
+        </div>
+        <div class="skill-tags">
+          <span>PostgreSQL</span><span>MySQL</span><span>Prisma</span><span>SQLAlchemy</span><span>PDO</span><span>UUID</span><span>Indexation</span>
+        </div>
+      </div>
+
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+        <div class="skill-head">
+          <i class="fas fa-palette"></i>
+          <h3>Front-end & UI</h3>
+        </div>
+        <div class="skill-tags">
+          <span>HTML5 / CSS3</span><span>JavaScript ES6+</span><span>Next.js</span><span>React</span><span>Tailwind CSS</span><span>Chart.js</span><span>Three.js</span>
+        </div>
+      </div>
+
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+        <div class="skill-head">
+          <i class="fas fa-diagram-project"></i>
+          <h3>Architecture & DevOps</h3>
+        </div>
+        <div class="skill-tags">
+          <span>Docker</span><span>Docker Compose</span><span>Nginx</span><span>Monorepo</span><span>Services</span><span>MVC-like</span><span>Asynchrone</span>
+        </div>
+      </div>
+
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="500">
+        <div class="skill-head">
+          <i class="fas fa-shield-halved"></i>
+          <h3>Sécurité & qualité</h3>
+        </div>
+        <div class="skill-tags">
+          <span>JWT</span><span>RBAC</span><span>OWASP</span><span>Nmap</span><span>Nuclei</span><span>ZAP</span><span>Semgrep</span><span>Trivy</span><span>Gitleaks</span><span>Audit</span><span>Tests</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== PROJECTS ==== -->
+<section id="projects" class="section projects">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">03 — Réalisations</span>
+      <h2 class="section-title">Projets <span class="gradient-text">phares</span></h2>
+      <p class="section-subtitle">Six réalisations publiques couvrant bioinformatique, cybersécurité, e-commerce, systèmes d'information et IA appliquée.</p>
+    </div>
+
+    <!-- PROJECT 1 : N3XORA -->
+    <article class="project featured" data-aos="fade-up">
+      <div class="project-meta">
+        <span class="project-number">01</span>
+        <span class="project-type">Plateforme R&D · Bioinformatique</span>
+      </div>
+      <div class="project-content">
+        <div class="project-info">
+          <h3 class="project-title">N3XORA v2.0</h3>
+          <p class="project-tagline">Plateforme web de bioinformatique, analyse structurale et docking computationnel</p>
+          <p class="project-description">
+            Plateforme conteneurisée dédiée à l'analyse ADN/ARN, au traitement de séquences et à l'exploration structurale. Le dépôt intègre un backend <strong>FastAPI</strong>, des traitements asynchrones <strong>Celery/Redis</strong>, <strong>PostgreSQL</strong>, <strong>RDKit</strong>, <strong>AutoDock Vina</strong>, fpocket et une visualisation 3D web.
+          </p>
+          <div class="project-highlights">
+            <div class="highlight"><i class="fas fa-check"></i> Recherche et acquisition de séquences via NCBI + analyse ADN/ARN</div>
+            <div class="highlight"><i class="fas fa-check"></i> Docking multi-poches avec fpocket et AutoDock Vina</div>
+            <div class="highlight"><i class="fas fa-check"></i> ASP comme post-traitement statistique des poses, séparé du score Vina</div>
+            <div class="highlight"><i class="fas fa-check"></i> Workflow de recherche variant → cible → structure → docking → interprétation 3D</div>
+          </div>
+          <div class="project-stack">
+            <span>Python</span><span>FastAPI</span><span>Celery</span><span>Redis</span><span>PostgreSQL</span><span>RDKit</span><span>Vina</span><span>Three.js</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/diarraibrahimamohamed-ops/nexora_v2" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <i class="fab fa-github"></i> Code source
+            </a>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="project-mockup">
+            <div class="mockup-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="mockup-url">n3xora / aperçu réel</span>
+            </div>
+            <div class="mockup-body flush">
+              <div class="project-carousel" data-carousel>
+  <div class="project-carousel-viewport"><button class="project-carousel-arrow prev" type="button" aria-label="Capture précédente">‹</button><button class="project-carousel-arrow next" type="button" aria-label="Capture suivante">›</button>
+    <a class="project-slide active" href="image/nexora-main.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir N3XORA v2 — capture principale">
+  <img src="image/nexora-main.png" alt="N3XORA v2 — capture principale" loading="eager">
+</a>
+    <a class="project-slide" href="image/nexora-complement.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir N3XORA v2 — capture complémentaire">
+  <img src="image/nexora-complement.png" alt="N3XORA v2 — capture complémentaire" loading="lazy">
+</a>
+  </div>
+  <div class="project-carousel-controls"><div class="project-carousel-dots"><button class="project-carousel-dot active" type="button" data-slide="0" aria-label="Afficher la capture 1"></button><button class="project-carousel-dot " type="button" data-slide="1" aria-label="Afficher la capture 2"></button></div><span class="project-carousel-count">1 / 2</span></div>
+  <div class="project-shot-caption">Captures réelles de N3XORA v2 · cliquer pour agrandir</div>
+</div>
+            </div>
+          </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 2 : ROULEAU -->
+    <article class="project featured reverse" data-aos="fade-up">
+      <div class="project-meta">
+        <span class="project-number">02</span>
+        <span class="project-type">Full-Stack · E-commerce</span>
+      </div>
+      <div class="project-content">
+        <div class="project-info">
+          <h3 class="project-title"><span class="gradient-text">Nova Commerce</span></h3>
+          <p class="project-tagline">Plateforme e-commerce moderne avec espace client et back-office</p>
+          <p class="project-description">
+            Application e-commerce complète bâtie avec <strong>Next.js 15</strong>, TypeScript strict, PostgreSQL et Prisma. Le projet couvre le catalogue, la recherche, le panier, la wishlist, les commandes, les avis, le programme de fidélité, le support et un dashboard administrateur.
+          </p>
+          <div class="project-highlights">
+            <div class="highlight"><i class="fas fa-check"></i> Authentification NextAuth, gestion des rôles et sessions sécurisées</div>
+            <div class="highlight"><i class="fas fa-check"></i> Catalogue avec filtres, recherche instantanée et recommandations</div>
+            <div class="highlight"><i class="fas fa-check"></i> Checkout Stripe en mode test + gestion des commandes</div>
+            <div class="highlight"><i class="fas fa-check"></i> Validation Zod, DOMPurify, rate limiting, CSP et audit log</div>
+            <a href="https://rouleau-dp0h.onrender.com/" rel="noreferrer" class="nav-link"><span>Cliquer pour démo</span> (Hébergé sur un serveur gratuit : le premier chargement peut prendre 45 secondes le temps que le serveur se réveille ☕)</a>
+          </div>
+          <div class="project-stack">
+            <span>Next.js 15</span><span>TypeScript</span><span>React 19</span><span>PostgreSQL</span><span>Prisma</span><span>NextAuth</span><span>Stripe</span><span>Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/diarraibrahimamohamed-ops/rouleau" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-github"></i> Code source</a>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="project-mockup">
+            <div class="mockup-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="mockup-url">nova-commerce / captures réelles</span>
+            </div>
+            <div class="mockup-body flush">
+              <div class="project-carousel" data-carousel>
+  <div class="project-carousel-viewport"><button class="project-carousel-arrow prev" type="button" aria-label="Capture précédente">‹</button><button class="project-carousel-arrow next" type="button" aria-label="Capture suivante">›</button>
+    <a class="project-slide active" href="image/nova-01.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir Rouleau / Nova Commerce — interface noir et orange 1">
+  <img src="image/nova-01.png" alt="Rouleau / Nova Commerce — interface noir et orange 1" loading="eager">
+</a>
+    <a class="project-slide" href="image/nova-02.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir Rouleau / Nova Commerce — interface noir et orange 2">
+  <img src="image/nova-02.png" alt="Rouleau / Nova Commerce — interface noir et orange 2" loading="lazy">
+</a>
+  </div>
+  <div class="project-carousel-controls"><div class="project-carousel-dots"><button class="project-carousel-dot active" type="button" data-slide="0" aria-label="Afficher la capture 1"></button><button class="project-carousel-dot " type="button" data-slide="1" aria-label="Afficher la capture 2"></button></div><span class="project-carousel-count">1 / 2</span></div>
+  <div class="project-shot-caption">Captures réelles de Rouleau / Nova Commerce · cliquer pour agrandir</div>
+</div>
+            </div>
+          </div>
+          <div class="project-shot-caption"></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 3 : SHOPFLOW -->
+    <article class="project featured" data-aos="fade-up">
+      <div class="project-meta">
+        <span class="project-number">03</span>
+        <span class="project-type">Application web · E-commerce</span>
+      </div>
+      <div class="project-content">
+        <div class="project-info">
+          <h3 class="project-title">ShopFlow</h3>
+          <p class="project-tagline">E-commerce PHP/MySQL avec back-office et gestion de stock</p>
+          <p class="project-description">
+            Application e-commerce développée en <strong>PHP/MySQL/HTML/CSS/JavaScript</strong>, avec architecture MVC-like et sans framework applicatif externe. Le dépôt documente plus de <strong>6 600 lignes de code et 37 fichiers</strong>, avec une séparation claire entre front-office, administration et API.
+          </p>
+          <div class="project-highlights">
+            <div class="highlight"><i class="fas fa-check"></i> Catalogue, panier AJAX, checkout, commandes et espace client</div>
+            <div class="highlight"><i class="fas fa-check"></i> RBAC à 3 rôles : customer, stock_manager et admin</div>
+            <div class="highlight"><i class="fas fa-check"></i> CSRF, échappement XSS, requêtes PDO préparées et sessions sécurisées</div>
+            <div class="highlight"><i class="fas fa-check"></i> Verrouillage optimiste du stock et transactions ACID pour les commandes</div>
+          </div>
+          <div class="project-stack">
+            <span>PHP 8</span><span>MySQL</span><span>PDO</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>AJAX</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/diarraibrahimamohamed-ops/ecommerce" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-github"></i> Code source</a>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="project-mockup">
+            <div class="mockup-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="mockup-url">shopflow / aperçu réel</span>
+            </div>
+            <div class="mockup-body flush">
+              <div class="project-carousel" data-carousel>
+                <div class="project-carousel-viewport">
+                  <button class="project-carousel-arrow prev" type="button" aria-label="Capture précédente">‹</button>
+                  <button class="project-carousel-arrow next" type="button" aria-label="Capture suivante">›</button>
+                  <a class="project-slide active" href="image/shopflow-01.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir ShopFlow — capture rouge et blanc 1">
+                    <img src="image/shopflow-01.png" alt="ShopFlow — interface rouge et blanc 1" loading="eager">
+                  </a>
+                  <a class="project-slide" href="image/shopflow-02.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir ShopFlow — capture rouge et blanc 2">
+                    <img src="image/shopflow-02.png" alt="ShopFlow — interface rouge et blanc 2" loading="lazy">
+                  </a>
+                  <a class="project-slide" href="image/shopflow-03.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir ShopFlow — capture rouge et blanc 3">
+                    <img src="image/shopflow-03.png" alt="ShopFlow — interface rouge et blanc 3" loading="lazy">
+                  </a>
+                </div>
+                <div class="project-carousel-controls">
+                  <div class="project-carousel-dots">
+                    <button class="project-carousel-dot active" type="button" data-slide="0" aria-label="Afficher la capture 1"></button>
+                    <button class="project-carousel-dot" type="button" data-slide="1" aria-label="Afficher la capture 2"></button>
+                    <button class="project-carousel-dot" type="button" data-slide="2" aria-label="Afficher la capture 3"></button>
+                  </div>
+                  <span class="project-carousel-count">1 / 3</span>
+                </div>
+                <div class="project-shot-caption">Captures réelles de ShopFlow · cliquer pour agrandir</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 4 : SNSC-MALI -->
+    <article class="project featured reverse" data-aos="fade-up">
+      <div class="project-meta">
+        <span class="project-number">04</span>
+        <span class="project-type">Système d'information · Santé</span>
+      </div>
+      <div class="project-content">
+        <div class="project-info">
+          <h3 class="project-title">SNSC-MALI <span class="gradient-text"></span></h3>
+          <p class="project-tagline">Système de suivi et de contrôle de la vaccination au Mali</p>
+          <p class="project-description">
+            Monorepo multi-services structuré autour d'un backend <strong>Laravel</strong>, d'un frontend <strong>Next.js</strong> et d'un service IA <strong>FastAPI</strong>, avec PostgreSQL et Docker. Le système couvre les dossiers enfants, les calendriers vaccinaux, les actes, les rendez-vous, les relances et l'audit.
+          </p>
+          <div class="project-highlights">
+            <div class="highlight"><i class="fas fa-check"></i> Gestion des dossiers enfants, vaccins, actes et rendez-vous</div>
+            <div class="highlight"><i class="fas fa-check"></i> Service IA pour l'évaluation du risque de retard vaccinal</div>
+            <div class="highlight"><i class="fas fa-check"></i> JWT, RBAC, validation stricte, rate limiting et journalisation</div>
+            <div class="highlight"><i class="fas fa-check"></i> Intégration prévue pour les relances SMS via Telerivet</div>
+          </div>
+          <div class="project-stack">
+            <span>Laravel</span><span>PHP 8.3</span><span>Next.js</span><span>React</span><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span><span>JWT</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/diarraibrahimamohamed-ops/SNSC-MALI" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-github"></i> Code source</a>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="project-mockup">
+            <div class="mockup-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="mockup-url">vaccin-track / aperçu réel</span></div>
+            <div class="mockup-body flush">
+              <div class="project-carousel" data-carousel>
+  <div class="project-carousel-viewport">
+    <a class="project-slide active" href="image/snsc-mali-01.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir SNSC-MALI / Vaccin Track — capture réelle">
+  <img src="image/snsc-mali-01.png" alt="SNSC-MALI / Vaccin Track — capture réelle" loading="eager">
+</a>
+  </div>
+  
+  <div class="project-shot-caption">Capture réelle de SNSC-MALI · cliquer pour agrandir</div>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 5 : SNAKE EYES / AFRICAWATCH -->
+    <article class="project featured reverse" data-aos="fade-up">
+      <div class="project-meta">
+        <span class="project-number">05</span>
+        <span class="project-type">Cybersécurité · Threat Intelligence · OSINT</span>
+      </div>
+      <div class="project-content">
+        <div class="project-info">
+          <h3 class="project-title">Snake Eyes <span class="gradient-text"></span></h3>
+          <p class="project-tagline">Plateforme de cybersécurité, renseignement sur les menaces et OSINT orientée contexte africain</p>
+          <p class="project-description">
+            Plateforme multi-services bâtie autour de <strong>Django 5</strong>, <strong>Next.js 14</strong>, PostgreSQL, Redis et Celery. Le projet rassemble Threat Intelligence, OSINT multilingue, SOC temps réel, gestion des vulnérabilités, cartographie de menace et un <strong>Offensive Lab à périmètre contrôlé</strong>, complété par un Security Lab pour l'audit défensif.
+          </p>
+          <div class="project-highlights">
+            <div class="highlight"><i class="fas fa-check"></i> IOCs, flux MISP/OTX/STIX/TAXII, campagnes et acteurs</div>
+            <div class="highlight"><i class="fas fa-check"></i> OSINT : sources, événements, collecte asynchrone, NLP et contexte africain</div>
+            <div class="highlight"><i class="fas fa-check"></i> SOC avec alertes WebSocket, incidents et règles Sigma/YARA</div>
+            <div class="highlight"><i class="fas fa-check"></i> Offensive Lab et Security Lab safe-by-default : reconnaissance, posture et audits non intrusifs</div>
+          </div>
+          <div class="project-stack">
+            <span>Python</span><span>Django 5</span><span>Next.js 14</span><span>PostgreSQL</span><span>Redis</span><span>Celery</span><span>Nmap</span><span>Nuclei</span><span>OWASP</span><span>ZAP</span><span>Semgrep</span><span>Trivy</span><span>Gitleaks</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/diarraibrahimamohamed-ops/snake_eyes" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-github"></i> Code source</a>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="project-mockup">
+            <div class="mockup-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="mockup-url">africawatch / security center</span></div>
+            <div class="mockup-body neuron-vis pad-diagram">
+              <div class="stack-diagram">
+                <div><strong>THREAT INTELLIGENCE</strong>  →  IOCs · MISP · STIX/TAXII</div>
+                <div><strong>OSINT ENGINE</strong>       →  RSS · GitHub · NLP · sources</div>
+                <div><strong>SOC CENTER</strong>         →  alerts · incidents · Sigma/YARA</div>
+                <div><strong>VULNERABILITY MGMT</strong> →  Nmap · Nuclei · CVSS</div>
+                <div><strong>OFFENSIVE LAB</strong>      →  scoped recon · posture · exposure</div>
+                <div><strong>SECURITY LAB</strong>       →  OWASP · ZAP · SAST/SCA · secrets</div>
+                <div class="diagram-note">SAFE-BY-DEFAULT · AUTHORIZATION · KILL-SWITCH · AUDIT</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-shot-caption">Aperçu fonctionnel représenté à partir des modules documentés.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 6 : EMPEREUR -->
+    <article id="empereur" class="project featured" data-aos="fade-up">
+      <div class="project-meta">
+        <span class="project-number">06</span>
+        <span class="project-type">Agent Linux · IA appliquée</span>
+      </div>
+      <div class="project-content">
+        <div class="project-info">
+          <h3 class="project-title">EMPEREUR <span class="gradient-text">v0.19.0</span></h3>
+          <p class="project-tagline">Agent Linux local à missions persistantes, intelligence projet et interaction vocale contrôlée</p>
+          <p class="project-description">
+            Agent Python évolué vers une architecture locale de type JARVIS : <strong>Strategist → Critic → Arbiter → Operator → Verifier</strong>, avec mémoire persistante, modèle structurel du projet, analyse d'impact, préflight de changement, control plane REST/WebSocket et cockpit web. La v0.19 ajoute un duplex vocal avec <strong>VAD local adaptatif</strong> et barge-in, sans donner de privilèges supplémentaires au modèle.
+          </p>
+          <div class="project-highlights">
+            <div class="highlight"><i class="fas fa-check"></i> Missions persistantes, sous-objectifs, reprise et arbitrage</div>
+            <div class="highlight"><i class="fas fa-check"></i> Project Context, mémoire sémantique, graphe, impact et change preflight</div>
+            <div class="highlight"><i class="fas fa-check"></i> Control plane REST/WebSocket + cockpit local + télémétrie</div>
+            <div class="highlight"><i class="fas fa-check"></i> Voix locale : STT/TTS optionnels, wake-word, duplex, interruption et VAD énergétique</div>
+          </div>
+          <div class="project-stack">
+            <span>Python</span><span>Typer</span><span>FastAPI</span><span>SQLite</span><span>Pydantic</span><span>HTTPX</span><span>WebSocket</span><span>Pytest</span><span>Linux</span><span>faster-whisper</span><span>openWakeWord</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/diarraibrahimamohamed-ops/empereur_IA" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-github"></i> Code source</a>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="project-mockup">
+            <div class="mockup-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="mockup-url">empereur / jarvis local</span></div>
+            <div class="mockup-body neuron-vis pad-diagram">
+              <div class="stack-diagram lg">
+                <div>USER / VOICE → <strong>EMPEREUR CORE</strong></div>
+                <div>             ↓</div>
+                <div><strong>MEMORY + PROJECT MODEL</strong></div>
+                <div>             ↓</div>
+                <div><strong>STRATEGIST → CRITIC → ARBITER</strong></div>
+                <div>             ↓</div>
+                <div><strong>TOOLS → PERMISSIONS → VERIFY</strong></div>
+                <div>             ↓</div>
+                <div><strong>OBSERVE → CORRECT → RETEST → RESUME</strong></div>
+                <div class="diagram-note tight">V0.19 · LOCAL VAD · BARGE-IN · AUDIT · BOUNDED MUTATIONS</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-shot-caption">Aperçu fonctionnel représenté à partir de l'architecture actuelle.</div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ==== CONTACT ==== -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="contact-card" data-aos="zoom-in">
+      <div class="contact-bg-blur"></div>
+      <span class="section-tag">05 — Restons en contact</span>
+      <h2 class="contact-title">Un projet ambitieux <br/>à <span class="gradient-text">construire ensemble ?</span></h2>
+      <p class="contact-text">
+        Mes réalisations sont ouvertes à la consultation et au suivi sur GitHub. Pour une collaboration, une mission ou un échange technique, mon profil GitHub est le point de départ.
+      </p>
+      <div class="contact-actions">
+        <a href="https://github.com/diarraibrahimamohamed-ops" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+          <i class="fab fa-github"></i>
+          <span>Mon GitHub</span>
+        </a>
+      </div>
+      <div class="contact-socials">
+        <a href="https://github.com/diarraibrahimamohamed-ops" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== FOOTER ==== -->
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="footer-left">
+      <span class="logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">IMD</span>
+        <span class="logo-bracket">/&gt;</span>
+      </span>
+      <p>© 2026 Ibrahima Mohamed Diarra. Designed & coded with <i class="fas fa-heart"></i> & <i class="fas fa-mug-hot"></i></p>
+    </div>
+    <div class="footer-right">
+      <a href="#hero">Retour en haut <i class="fas fa-arrow-up"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
