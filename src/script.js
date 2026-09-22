@@ -7,6 +7,57 @@
     return;
   }
 
+  // Anti-devtools protection
+  const devtools = {
+    open: false,
+    threshold: 160
+  };
+
+  setInterval(() => {
+    const widthThreshold = window.outerWidth - window.innerWidth > devtools.threshold;
+    const heightThreshold = window.outerHeight - window.innerHeight > devtools.threshold;
+    if (widthThreshold || heightThreshold) {
+      if (!devtools.open) {
+        devtools.open = true;
+        document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#050810;color:#00ffd5;font-family:monospace;font-size:24px;">🔒 Accès refusé - Mode inspection détecté</div>';
+        window.location.reload();
+      }
+    } else {
+      devtools.open = false;
+    }
+  }, 500);
+
+  // Disable right-click
+  document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    return false;
+  });
+
+  // Disable common keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    if (
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+      (e.ctrlKey && e.key === 'U') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'C')
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Detect debugger
+  const detector = () => {
+    const start = Date.now();
+    debugger;
+    if (Date.now() - start > 100) {
+      document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#050810;color:#00ffd5;font-family:monospace;font-size:24px;">🔒 Débogueur détecté - Accès refusé</div>';
+      window.location.reload();
+    }
+  };
+  setInterval(detector, 1000);
+
 const cursorDot = document.getElementById('cursorDot');
 const cursorRing = document.getElementById('cursorRing');
 

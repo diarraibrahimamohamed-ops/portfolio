@@ -62,21 +62,22 @@ if (cssResult.errors.length) {
 const jsOut = JavaScriptObfuscator.obfuscate(js, {
   compact: true,
   controlFlowFlattening: true,
-  controlFlowFlatteningThreshold: 0.75,
+  controlFlowFlatteningThreshold: 0.6,
   deadCodeInjection: true,
-  deadCodeInjectionThreshold: 0.4,
+  deadCodeInjectionThreshold: 0.3,
   debugProtection: true,
   debugProtectionInterval: 0,
   disableConsoleOutput: true,
-  identifierNamesGenerator: 'mangled',
+  identifierNamesGenerator: 'mangled-shuffled',
   identifiersPrefix: '',
   inputFileName: '',
-  numbersToExpressions: true,
+  numbersToExpressions: false,
   renameGlobals: false,
-  renameProperties: false,
+  renameProperties: true,
+  renamePropertiesMode: 'safe',
   reservedNames: [],
   reservedStrings: [],
-  seed: 0,
+  seed: Math.floor(Math.random() * 10000),
   selfDefending: true,
   simplify: true,
   splitStrings: true,
@@ -93,11 +94,11 @@ const jsOut = JavaScriptObfuscator.obfuscate(js, {
   stringArrayWrappersChainedCalls: true,
   stringArrayWrappersParametersMaxCount: 4,
   stringArrayWrappersType: 'function',
-  stringArrayThreshold: 0.75,
+  stringArrayThreshold: 0.7,
   target: 'browser',
   transformObjectKeys: true,
-  transformObjectKeysThreshold: 0.75,
-  unicodeEscapeSequence: false,
+  transformObjectKeysThreshold: 0.6,
+  unicodeEscapeSequence: true,
   sourceMap: false,
   sourceMapMode: 'separate',
 }).getObfuscatedCode();
@@ -117,24 +118,27 @@ const htmlOut = await minifyHtml(html, {
   useShortDoctype: true,
   keepClosingSlash: true,
   decodeEntities: false,
-  minifyCSS: false,
-  minifyJS: false,
+  minifyCSS: { inline: false },
+  minifyJS: { inline: false },
   continueOnParseError: false,
 });
 
-if (/\son[a-z]+\s*=/i.test(htmlOut) || /javascript:/i.test(htmlOut)) {
+// Inline CSS and JS into HTML to prevent separate file access
+const htmlWithInline = htmlOut
+  .replace(/<link rel="stylesheet" href="style\.css"[^>]*>/gi, `<style>${cssResult.styles}</style>`)
+  .replace(/<script src="script\.js"><\/script>/gi, `<script>${jsOut}</script>`);
+
+if (/\son[a-z]+\s*=/i.test(htmlWithInline) || /javascript:/i.test(htmlWithInline)) {
   console.error('HTML minifié contient encore un gestionnaire inline ou une URL javascript:.');
   process.exit(1);
 }
 
-await Promise.all([
-  writeFile('index.html', htmlOut),
-  writeFile('style.css', cssResult.styles),
-  writeFile('script.js', jsOut + '\n'),
-]);
+// Write only the inline HTML file - no separate CSS/JS files
+await writeFile('index.html', htmlWithInline);
 
 console.log(JSON.stringify({
-  html: htmlOut.length,
+  html: htmlWithInline.length,
   css: cssResult.styles.length,
   js: jsOut.length,
+  message: 'CSS et JS inline dans le HTML pour protection maximale'
 }));
